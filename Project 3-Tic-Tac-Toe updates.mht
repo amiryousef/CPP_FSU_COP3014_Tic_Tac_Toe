@@ -1,0 +1,500 @@
+From: "Saved by Windows Internet Explorer 8"
+Subject: Project 3-Tic-Tac-Toe
+Date: Mon, 7 Jun 2010 19:38:07 -0400
+MIME-Version: 1.0
+Content-Type: text/html;
+	charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://ww2.cs.fsu.edu/~porter/cop3014/summer2010/projects/Project%203.htm
+X-MimeOLE: Produced By Microsoft MimeOLE V6.0.6002.18197
+
+=EF=BB=BF<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Project 3-Tic-Tac-Toe</TITLE>
+<META content=3D"text/html; charset=3Dutf-8" http-equiv=3DContent-Type>
+<META name=3DGENERATOR content=3D"MSHTML 8.00.6001.18904"></HEAD>
+<BODY bgColor=3D#ffffff>
+<P align=3Dcenter><FONT size=3D5 face=3DVerdana><STRONG>Project=20
+3-Tic-Tac-Toe</STRONG></FONT></P>
+<P><FONT size=3D2 face=3DVerdana><STRONG>Description: </STRONG>In this =
+project, you=20
+will combine the experience from previous projects to create a larger =
+program.=20
+You will also make use of an array and get experience passing arguments =
+to=20
+functions.</FONT></P>
+<P><FONT size=3D2 face=3DVerdana><STRONG>Details:</STRONG> Write a =
+program to play=20
+the well-known game Tic-Tac-Toe.</FONT></P>
+<P><FONT size=3D2 face=3DVerdana>Your first task is to create a class =
+called=20
+<STRONG>TicTacToe</STRONG> and put the declaration in a file named=20
+<STRONG>ttt.h</STRONG>. The implementation will go in =
+<STRONG>ttt.cpp</STRONG>.=20
+Your class will have the following public interface:</FONT></P>
+<BLOCKQUOTE>
+  <P><FONT size=3D2=20
+face=3DVerdana><STRONG>TicTacToe();</STRONG></FONT></P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <BLOCKQUOTE>
+    <P><FONT size=3D2 face=3DVerdana>This is the default constructor for =
+the class.=20
+    It will call a function to initialize the Tic-Tac-Toe board to blank =
+spaces=20
+    (i.e. the ' ' character).</FONT></P></BLOCKQUOTE>
+  <P><FONT size=3D2 face=3DVerdana><STRONG>void=20
+  InitializeBoard();</STRONG></FONT></P>
+  <BLOCKQUOTE>
+    <P><FONT size=3D2 face=3DVerdana>This function will initialize the =
+board to=20
+    blank spaces. It is also called by the default constructor=20
+  above.</FONT></P></BLOCKQUOTE>
+  <P><FONT size=3D2 face=3DVerdana><STRONG>void =
+PrintBoard();</STRONG></FONT></P>
+  <BLOCKQUOTE>
+    <P><FONT size=3D2 face=3DVerdana>This function will print the =
+Tic-Tac-Toe=20
+    board.</FONT></P></BLOCKQUOTE>
+  <P><FONT size=3D2 face=3DVerdana><STRONG>bool OccupySquare(size_t x, =
+size_t y,=20
+  char value);</STRONG></FONT></P>
+  <BLOCKQUOTE>
+    <P><FONT size=3D2 face=3DVerdana>This function will occupy a square =
+on the=20
+    board. It takes in two coordinates and a value which should be =
+either 'X' or=20
+    'O'. It returns true if the square was occupied, false if the square =
+wasn't=20
+    occupied (because of invalid coordinates or a square already=20
+    occupied).</FONT></P></BLOCKQUOTE>
+  <P><FONT size=3D2 face=3DVerdana><STRONG>char=20
+CheckForWinner();</STRONG></FONT></P>
+  <BLOCKQUOTE>
+    <P><FONT size=3D2 face=3DVerdana>This function will check the board =
+for a=20
+    winner. It will return a ' ' to indicate no winner, an 'X' to =
+indicate that=20
+    X has won, an 'O' to indicate that O has won, or an 'S' to indicate =
+a=20
+    scratch.</FONT></P></BLOCKQUOTE></BLOCKQUOTE>
+<P><FONT size=3D2 face=3DVerdana>Your class will have the following =
+public=20
+constants:</FONT></P>
+<BLOCKQUOTE>
+  <P><FONT size=3D2 face=3DVerdana><STRONG>static const size_t rows =3D =
+3;<BR>static=20
+  const size_t cols =3D 3;</STRONG></FONT></P>
+  <BLOCKQUOTE>
+    <P><FONT size=3D2 face=3DVerdana>These are static constants to =
+represent the=20
+    number of rows and columns in our Tic-Tac-Toe board. It's considered =
+good=20
+    programming practice to use constants like these for arrays (see =
+below). The=20
+    static keyword simply means all objects of the class share these=20
+    constants.</FONT></P></BLOCKQUOTE></BLOCKQUOTE>
+<P><FONT size=3D2 face=3DVerdana>Your class will have the following =
+private=20
+functions:</FONT></P>
+<BLOCKQUOTE>
+  <P><FONT size=3D2 face=3DVerdana><STRONG>bool IsValidLocation(size_t =
+x, size_t=20
+  y);</STRONG></FONT></P>
+  <BLOCKQUOTE>
+    <P><FONT size=3D2 face=3DVerdana>This function will take in two =
+coordinates and=20
+    decide if they are valid. Valid coordinates are those within the =
+range of=20
+    the board indices and not already occupied. This function will be =
+called by=20
+    <STRONG>OccupySquare()</STRONG>. It will return true if the =
+coordinates are=20
+    valid, false otherwise.</FONT></P></BLOCKQUOTE>
+  <P><FONT size=3D2 face=3DVerdana><STRONG>bool=20
+IsScratch();</STRONG></FONT></P></BLOCKQUOTE>
+<BLOCKQUOTE>
+  <BLOCKQUOTE>
+    <P><FONT size=3D2 face=3DVerdana>This function will decide if the =
+game is a=20
+    scratch. It will be called by <STRONG>CheckForWinner()</STRONG>. =
+Note that=20
+    you should call this function after checking the winning=20
+    possibilities.</FONT></P></BLOCKQUOTE></BLOCKQUOTE>
+<P><FONT size=3D2 face=3DVerdana>Finally, you will have the following =
+private class=20
+variable:</FONT></P>
+<BLOCKQUOTE>
+  <P><FONT size=3D2 face=3DVerdana><STRONG>char=20
+  board[rows][cols];</STRONG></FONT></P>
+  <BLOCKQUOTE>
+    <P><FONT size=3D2 face=3DVerdana>This is a two-dimensional character =
+array to=20
+    represent the board. You can think of the board as a 3 x 3 set of =
+squares,=20
+    with the top left square having coordinates (0, 0) and the bottom =
+right=20
+    square having coordinates (2, =
+2).</FONT></P></BLOCKQUOTE></BLOCKQUOTE>
+<P><FONT size=3D2 face=3DVerdana>Your second task will be to develop a =
+driver=20
+program and put it in a file named <STRONG>tttdriver.cpp</STRONG>. The =
+driver=20
+program will first print a menu asking for the number of players. 0 will =
+mean=20
+two computer players, 1 will mean a human vs the computer, and 2 will =
+mean two=20
+human players. Then, you will randomly choose who goes first, 'X' or =
+'O'. The=20
+game will then play out until someone wins or the game is a scratch. The =
+
+computer's move is always randomly chosen. In the event of an invalid =
+location,=20
+just have it keep randomly choosing until the location is valid. Of =
+course, you=20
+will need a <STRONG>TicTacToe</STRONG> object in order to call the =
+necessary=20
+functions of class <STRONG>TicTacToe</STRONG>. You can assume the user =
+will=20
+enter two integral coordinates separated by space(s), with no =
+parentheses or=20
+comma. But, you can't assume these two integral coordinates are valid. =
+Pay close=20
+attention to my sample runs and try to mimic them. </FONT></P>
+<P><FONT size=3D2 face=3DVerdana><STRONG>Programming Tips:</STRONG> =
+Project's 1 and=20
+2 gave you experience with everything in this project except arrays and =
+passing=20
+arguments to functions. So, be sure to understand these concepts before=20
+proceeding. You should also recall key concepts from previous projects =
+such as=20
+multiple inclusion detection, commenting, and code formatting. You can =
+be=20
+creative with the drawing of your Tic-Tac-Toe board, or you can just =
+mimic mine.=20
+</FONT></P>
+<P style=3D"MARGIN-RIGHT: 0px" dir=3Dltr><FONT size=3D2 =
+face=3DVerdana><STRONG>Sample=20
+Runs: </STRONG></FONT></P>
+<BLOCKQUOTE style=3D"MARGIN-RIGHT: 0px" dir=3Dltr>
+  <P style=3D"MARGIN-RIGHT: 0px" dir=3Dltr><FONT color=3D#ff0000 =
+size=3D2=20
+  face=3D"Courier New">*** Welcome to Tic-Tac-Toe =
+***</FONT></P></BLOCKQUOTE>
+<BLOCKQUOTE style=3D"MARGIN-RIGHT: 0px" dir=3Dltr>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">How many =
+players will be=20
+  playing?&nbsp;0</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">X, enter square =
+
+  coordinates:&nbsp;1 2</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">&nbsp;&nbsp; =
+|&nbsp;&nbsp;=20
+  |<BR>--- --- ---<BR>&nbsp;&nbsp; |&nbsp;&nbsp; | X<BR>--- ---=20
+  ---<BR>&nbsp;&nbsp; |&nbsp;&nbsp; |</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">O, enter square =
+
+  coordinates:&nbsp;2 2</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">&nbsp;&nbsp; =
+|&nbsp;&nbsp;=20
+  |<BR>--- --- ---<BR>&nbsp;&nbsp; |&nbsp;&nbsp; | X<BR>--- ---=20
+  ---<BR>&nbsp;&nbsp; |&nbsp;&nbsp; | O</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">X, enter square =
+
+  coordinates:&nbsp;1 2</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">Invalid =
+square.</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">X, enter square =
+
+  coordinates:&nbsp;1 1</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">&nbsp;&nbsp; =
+|&nbsp;&nbsp;=20
+  |<BR>--- --- ---<BR>&nbsp;&nbsp; | X | X<BR>--- --- =
+---<BR>&nbsp;&nbsp;=20
+  |&nbsp;&nbsp; | O</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">O, enter square =
+
+  coordinates:&nbsp;0 2</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">&nbsp;&nbsp; =
+|&nbsp;&nbsp; |=20
+  O<BR>--- --- ---<BR>&nbsp;&nbsp; | X | X<BR>--- --- =
+---<BR>&nbsp;&nbsp;=20
+  |&nbsp;&nbsp; | O</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">X, enter square =
+coordinates:=20
+  1 1</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">Invalid =
+square.</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">X, enter square =
+coordinates:=20
+  0 0</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">&nbsp;X =
+|&nbsp;&nbsp; |=20
+  O<BR>--- --- ---<BR>&nbsp;&nbsp; | X | X<BR>--- --- =
+---<BR>&nbsp;&nbsp;=20
+  |&nbsp;&nbsp; | O</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">O, enter square =
+coordinates:=20
+  2 1</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">&nbsp;X =
+|&nbsp;&nbsp; |=20
+  O<BR>--- --- ---<BR>&nbsp;&nbsp; | X | X<BR>--- --- =
+---<BR>&nbsp;&nbsp; | O |=20
+  O</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">X, enter square =
+
+  coordinates:&nbsp;2 1</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">Invalid =
+square.</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">X, enter square =
+coordinates:=20
+  1 1</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">Invalid =
+square.</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">X, enter square =
+
+  coordinates:&nbsp;0 0</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">Invalid =
+square.</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">X, enter square =
+
+  coordinates:&nbsp;0 1</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">&nbsp;X | X | =
+O<BR>--- ---=20
+  ---<BR>&nbsp;&nbsp; | X | X<BR>--- --- ---<BR>&nbsp;&nbsp; | O | =
+O</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">O, enter square =
+
+  coordinates:&nbsp;1 1</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">Invalid =
+square.</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">O, enter square =
+
+  coordinates:&nbsp;1 2</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">Invalid =
+square.</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">O, enter square =
+
+  coordinates:&nbsp;2 1</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">Invalid =
+square.</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">O, enter square =
+
+  coordinates:&nbsp;0 1</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">Invalid =
+square.</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">O, enter square =
+
+  coordinates:&nbsp;2 2</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">Invalid =
+square.</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">O, enter square =
+coordinates:=20
+  0 2</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">Invalid =
+square.</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">O, enter square =
+
+  coordinates:&nbsp;2 1</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">Invalid =
+square.</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">O, enter square =
+
+  coordinates:&nbsp;1 0</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">&nbsp;X | X | =
+O<BR>--- ---=20
+  ---<BR>&nbsp;O | X | X<BR>--- --- ---<BR>&nbsp;&nbsp; | O | =
+O</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">X, enter square =
+
+  coordinates:&nbsp;1 0</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">Invalid =
+square.</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">X, enter square =
+
+  coordinates:&nbsp;0 0</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">Invalid =
+square.</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">X, enter square =
+
+  coordinates:&nbsp;1 1</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">Invalid =
+square.</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">X, enter square =
+
+  coordinates:&nbsp;1 0</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">Invalid =
+square.</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">X, enter square =
+
+  coordinates:&nbsp;2 1</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">Invalid =
+square.</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">X, enter square =
+
+  coordinates:&nbsp;2 2</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">Invalid =
+square.</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">X, enter square =
+
+  coordinates:&nbsp;1 2</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">Invalid =
+square.</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">X, enter square =
+
+  coordinates:&nbsp;2 1</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">Invalid =
+square.</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">X, enter square =
+
+  coordinates:&nbsp;2 1</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">Invalid =
+square.</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">X, enter square =
+
+  coordinates:&nbsp;1 2</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">Invalid =
+square.</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">X, enter square =
+
+  coordinates:&nbsp;2 2</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">Invalid =
+square.</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">X, enter square =
+coordinates:=20
+  2 2</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">Invalid =
+square.</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">X, enter square =
+
+  coordinates:&nbsp;2 1</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">Invalid =
+square.</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">X, enter square =
+
+  coordinates:&nbsp;0 1</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">Invalid =
+square.</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">X, enter square =
+
+  coordinates:&nbsp;2 1</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">Invalid =
+square.</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">X, enter square =
+coordinates:=20
+  0 0</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">Invalid =
+square.</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">X, enter square =
+
+  coordinates:&nbsp;0 0</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">Invalid =
+square.</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">X, enter square =
+coordinates:=20
+  0 1</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">Invalid =
+square.</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">X, enter square =
+
+  coordinates:&nbsp;0 0</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">Invalid =
+square.</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">X, enter square =
+
+  coordinates:&nbsp;2 0</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">&nbsp;X | X | =
+O<BR>--- ---=20
+  ---<BR>&nbsp;O | X | X<BR>--- --- ---<BR>&nbsp;X | O | O</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">Draw =
+game!</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">*** Welcome to =
+Tic-Tac-Toe=20
+  ***</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">How many =
+players will be=20
+  playing? 1</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">X, enter square =
+coordinates:=20
+  0 2</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">&nbsp;&nbsp; =
+|&nbsp;&nbsp; |=20
+  X<BR>--- --- ---<BR>&nbsp;&nbsp; |&nbsp;&nbsp; |<BR>--- ---=20
+  ---<BR>&nbsp;&nbsp; |&nbsp;&nbsp; |</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">O, enter square =
+
+  coordinates:&nbsp;0 1</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">&nbsp;&nbsp; | =
+O | X<BR>---=20
+  --- ---<BR>&nbsp;&nbsp; |&nbsp;&nbsp; |<BR>--- --- ---<BR>&nbsp;&nbsp; =
+
+  |&nbsp;&nbsp; |</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">X, enter square =
+
+  coordinates:&nbsp;2 0</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">&nbsp;&nbsp; | =
+O | X<BR>---=20
+  --- ---<BR>&nbsp;&nbsp; |&nbsp;&nbsp; |<BR>--- --- ---<BR>&nbsp;X=20
+  |&nbsp;&nbsp; |</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">O, enter square =
+
+  coordinates:&nbsp;1 2</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">&nbsp;&nbsp; | =
+O | X<BR>---=20
+  --- ---<BR>&nbsp;&nbsp; |&nbsp;&nbsp; | O<BR>--- --- ---<BR>&nbsp;X=20
+  |&nbsp;&nbsp; |</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">X, enter square =
+
+  coordinates:&nbsp;1 1</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">&nbsp;&nbsp; | =
+O | X<BR>---=20
+  --- ---<BR>&nbsp;&nbsp; | X | O<BR>--- --- ---<BR>&nbsp;X =
+|&nbsp;&nbsp;=20
+  |</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">X =
+wins!</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">*** Welcome to =
+Tic-Tac-Toe=20
+  ***</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">How many =
+players will be=20
+  playing? 2</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">O, enter square =
+
+  coordinates:&nbsp;0 0</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">&nbsp;O =
+|&nbsp;&nbsp;=20
+  |<BR>--- --- ---<BR>&nbsp;&nbsp; |&nbsp;&nbsp; |<BR>--- ---=20
+  ---<BR>&nbsp;&nbsp; |&nbsp;&nbsp; |</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">X, enter square =
+
+  coordinates:&nbsp;0 1</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">&nbsp;O | X =
+|<BR>--- ---=20
+  ---<BR>&nbsp;&nbsp; |&nbsp;&nbsp; |<BR>--- --- ---<BR>&nbsp;&nbsp;=20
+  |&nbsp;&nbsp; |</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">O, enter square =
+coordinates:=20
+  1 0</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">&nbsp;O | X =
+|<BR>--- ---=20
+  ---<BR>&nbsp;O |&nbsp;&nbsp; |<BR>--- --- ---<BR>&nbsp;&nbsp; =
+|&nbsp;&nbsp;=20
+  |</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">X, enter square =
+
+  coordinates:&nbsp;0 2</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">&nbsp;O | X | =
+X<BR>--- ---=20
+  ---<BR>&nbsp;O |&nbsp;&nbsp; |<BR>--- --- ---<BR>&nbsp;&nbsp; =
+|&nbsp;&nbsp;=20
+  |</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">O, enter square =
+
+  coordinates:&nbsp;2 0</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">&nbsp;O | X | =
+X<BR>--- ---=20
+  ---<BR>&nbsp;O |&nbsp;&nbsp; |<BR>--- --- ---<BR>&nbsp;O |&nbsp;&nbsp; =
+
+  |</FONT></P>
+  <P><FONT color=3D#ff0000 size=3D2 face=3D"Courier New">O =
+wins!</FONT>&nbsp;</P>
+  <P>&nbsp;</P></BLOCKQUOTE></BODY></HTML>
